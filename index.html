@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Weather App</h1>
+        <form id="weatherSearch">
+            <div id="formField">
+                <label for="cityName">
+                    <span><h3>Enter your city:</h3></span>
+                    <input id="citySearch" type="text" required minlength="1" maxlength="20">
+                </label>
+            </div>
+            <input type="submit" id="submitForm" value="Get Weather">
+        </form>
+    </div>
+    <div id="contentHolder">
+        <div id="weatherCard">
+            <div id="weatherCardTop">
+                <div id="leftSideTop">
+                    <h1 id="city">City</h1>
+                    <div id="location"><h4 id="weekday">Weekday</h3><h4 id="country">Country</h3></div>
+                </div>
+            <div id="rightSideTop">
+                <div id="iconHolder">Icon</div>
+            </div>
+            </div>
+            <div id="weatherCardMiddle">
+                <div id="leftSideMiddle">
+                    <h1 id="temperature" class="tempText">00&deg;</h1><h1 id="tempFormat" class="tempText">C</h1>
+                </div>
+                <div id="rightSideMiddle">
+                    <div id="humidityPressureBox">
+                        <h4 id="humidity">Humidity</h4>
+                        <h4 id="pressure">Pressure</h4>
+                    </div>
+                </div>
+            </div>
+            <div id="weatherCardBottom">
+                <label for="formatToggle" id="formatLabel"></label>
+                    Farenheit?
+                    <input id="formatToggle" type="checkbox">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+:root {
+    --light1: #FCFCFF;
+    --light2: #C6C8EE;
+    --light3: #BBB6DF;
+    --medium1: #BD6B73;
+    --medium2: #A30B37; 
+}
+
+@font-face {
+    font-family: "Mochi";
+    src: url("./font/MochiyPopPOne-Regular.ttf");
+    }
+
+* {
+    margin: 0;
+    font-family: "Mochi", sans-serif;
+}
+
+body {
+
+}
+
+#contentHolder {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--light1);
+    display: flex;
+    justify-content: center;
+    padding-top: 130px;
+}
+
+#weatherCard {
+    height: 400px;
+    width: 600px;
+    background-color: var(--light1);
+    border: solid 5px var(--light3);
+    border-radius: 10px;
+}
+
+
+#weatherCardTop {
+    background-color: var(--medium1);
+    border-radius: 5px 5px 0px 0px;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    display: flex;
+    height: 30%;
+    align-items: center;
+}
+
+#leftSideTop {
+    width: 50%;
+}
+
+#rightSideTop {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#weatherCardMiddle {
+    background-color: var(--light3);
+    height: 40%;
+    display: flex;
+}
+
+#weatherCardBottom {
+    background-color: var(--medium1);
+    height: 30%;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+#leftSideMiddle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.tempText {
+    font-size: 3em;
+}
+
+#rightSideMiddle {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#humidityPressureBox {
+    height: 80%;
+    width: 80%;
+    border-radius: 10px;
+    background-color: var(--light1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    padding-left: 8px;
+}
+
+#formatToggle {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+}
+#location {
+    display: flex;
+}
+
+#weekday {
+    margin-right: 10px;
+}
+
+#header {
+    width: 100%;
+    border-bottom: solid 5px var(--light3);
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+
+    background-color: var(--light2);
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.error {
+
+}
+
+cityName.error {
+    border: solid 2px red;
+}
