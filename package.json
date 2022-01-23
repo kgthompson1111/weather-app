@@ -1,0 +1,22 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "TOP Weather App",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgthompson1111/weather-app.git"
+  },
+  "author": "Kelly Thompson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kgthompson1111/weather-app/issues"
+  },
+  "homepage": "https://github.com/kgthompson1111/weather-app#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

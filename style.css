@@ -39,7 +39,7 @@ body {
 
 
 #weatherCardTop {
-    background-color: var(--medium1);
+    background-color: var(--light2);
     border-radius: 5px 5px 0px 0px;
     padding: 5px 20px;
     box-sizing: border-box;
@@ -49,24 +49,33 @@ body {
 }
 
 #leftSideTop {
-    width: 50%;
+    width: 100%;
+}
+
+#city {
+    margin-right: 10px;
 }
 
 #rightSideTop {
-    width: 50%;
+    width: fit-content;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
+#icon {
+    height: 100%;
+    width: auto;
+}
+
 #weatherCardMiddle {
-    background-color: var(--light3);
+    background-color: var(--medium1);
     height: 40%;
     display: flex;
 }
 
 #weatherCardBottom {
-    background-color: var(--medium1);
+    background-color: var(--light2);
     height: 30%;
     border-radius: 0 0 5px 5px;
     display: flex;
@@ -103,9 +112,19 @@ body {
     flex-direction: column;
     gap: 10px;
     justify-content: center;
+    align-items: center;
     padding-left: 8px;
+    margin-left: 8px;
 }
 
+#pressureBox, #humidityBox {
+    display: flex;
+    width: 80%;
+}
+
+#humidityLabel, #pressureLabel {
+    margin-right: auto;
+}
 #formatToggle {
     height: 30px;
     width: 30px;
