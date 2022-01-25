@@ -16,8 +16,8 @@
     font-family: "Mochi", sans-serif;
 }
 
-body {
-
+#citySearch {
+    margin: 4px 0px;
 }
 
 #contentHolder {
@@ -27,6 +27,7 @@ body {
     display: flex;
     justify-content: center;
     padding-top: 130px;
+    box-shadow: inset 0 0px 20px black;
 }
 
 #weatherCard {
@@ -35,6 +36,9 @@ body {
     background-color: var(--light1);
     border: solid 5px var(--light3);
     border-radius: 10px;
+    opacity: 0;
+    transition: opacity 1.5s;
+    box-shadow: 0 0px 20px black;
 }
 
 
@@ -93,7 +97,7 @@ body {
 }
 
 .tempText {
-    font-size: 3em;
+    font-size: 4em;
 }
 
 #rightSideMiddle {
@@ -125,6 +129,7 @@ body {
 #humidityLabel, #pressureLabel {
     margin-right: auto;
 }
+
 #formatToggle {
     height: 30px;
     width: 30px;
@@ -134,7 +139,7 @@ body {
     display: flex;
 }
 
-#weekday {
+#date {
     margin-right: 10px;
 }
 
@@ -146,18 +151,9 @@ body {
     align-items: center;
     justify-content: center;
     gap: 100px;
-
     background-color: var(--light2);
 }
 
 h1 {
     font-size: 2em;
-}
-
-.error {
-
-}
-
-cityName.error {
-    border: solid 2px red;
 }

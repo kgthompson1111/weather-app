@@ -11,19 +11,27 @@ let humidity = document.getElementById('humidity');
 let icon = document.getElementById('icon');
 let pressure = document.getElementById('pressure');
 let weekday = document.getElementById('weekday');
+let tempFormat = document.getElementById('tempFormat');
+let formatToggle = document.getElementById('formatToggle');
 
 // global variable to store weather data
-let data
-let isFarenheit = false;
+let data;
+let thisCity;
+let isFarenheit;
+loadTemperatureFormat();
 
 //array for days of the week
 const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",];
 
-// weatherCard.style.display = "none";
+// temp format toggle event listener
+formatToggle.addEventListener('change', () => {
+    switchTemperatureFormat();
+});
+
 
 // set weatherCard visibility to none
 async function getCurrentWeather(city) {
-    //first, fetch data from openweathermap 
+    //fetch data from openWeatherMap
     try {
         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cca9bf6e3767fb41353c843d11ae019c`, {mode: 'cors'})
         .then(function(response) {
@@ -37,16 +45,6 @@ async function getCurrentWeather(city) {
             }
             // if no error, set data to response object
             data = response;
-            console.log(data);
-            console.log(data.name);
-            console.log(data.sys.country);
-            console.log(data.weather[0].main);
-            console.log(data.main.temp);
-            console.log(data.main.humidity);
-            console.log(data.main.pressure);
-            console.log(data.main.pressure);
-            console.log(data.weather[0].icon)
-            console.log(data.lastupdate);
         })
         .then(function() {
             buildWeatherCard(data);
@@ -58,25 +56,35 @@ async function getCurrentWeather(city) {
 }
 
 weatherSearch.addEventListener('submit', (e) => {
+    thisCity = citySearch.value;
+    clearSearchBox();
     e.preventDefault();
-    getCurrentWeather(`${citySearch.value}`);
+    if(data) {
+        fadeOut();
+        weatherCard.addEventListener('webkitTransitionEnd', () => {
+            getCurrentWeather(thisCity);
+        });
+    } else {
+        getCurrentWeather(thisCity);
+    }
 });
 
 function buildWeatherCard(input) {
     city.textContent = input.name;
     country.textContent = input.sys.country;
-    weekday.textContent = displayDay();
+    date.textContent = displayDay();
     temperature.textContent = convertKelvin(input.main.temp);
     humidity.textContent = input.main.humidity;
     pressure.textContent = input.main.pressure;
     icon.src = `http://openweathermap.org/img/wn/${input.weather[0].icon}@2x.png`;
+    icon.onload = () => { fadeIn(); }
 }
 
 function convertKelvin(input) {
     // convert K to farenheit
     if(isFarenheit) {
         let farenheit = (((input - 273.15) * (9/5)) + 32);
-        return farenheit;
+        return Math.floor(farenheit);
     }
     // convert K to celsius
     return Math.floor(input - 273.15);
@@ -87,4 +95,38 @@ function displayDay() {
     let cleanDate = today.toDateString();
     // return days[today.getDay()];
     return cleanDate;
+}
+
+function fadeIn() {
+    weatherCard.style.opacity = 1;
+}
+
+function fadeOut() {
+    weatherCard.style.opacity = 0;
+}
+
+function switchTemperatureFormat() {
+    if(isFarenheit) {
+        tempFormat.innerHTML = `&deg;C`;
+        isFarenheit = false;
+    } else {
+        tempFormat.innerHTML = `&deg;F`;
+        isFarenheit = true;
+    }
+    temperature.textContent = convertKelvin(data.main.temp);
+}
+
+function loadTemperatureFormat() {
+    // change symbol
+    if(formatToggle.checked) {
+        isFarenheit = true;
+        tempFormat.innerHTML = '&deg;F';
+    } else {
+        isFarenheit = false;
+        tempFormat.innerHTML = '&deg;C';
+    }
+}
+
+function clearSearchBox() {
+    citySearch.value = "";
 }
