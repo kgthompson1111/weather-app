@@ -33,7 +33,7 @@ formatToggle.addEventListener('change', () => {
 async function getCurrentWeather(city) {
     //fetch data from openWeatherMap
     try {
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cca9bf6e3767fb41353c843d11ae019c`, {mode: 'cors'})
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cca9bf6e3767fb41353c843d11ae019c`, {mode: 'cors'})
         .then(function(response) {
             return response.json();
         })
